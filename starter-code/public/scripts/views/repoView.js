@@ -13,7 +13,7 @@
 
   // DONE: Remember that new Handlebars template? Let's compile it!
   // Save the result in this `render` variable.
-  let render = Handlebars.compile($('#repo-template').text());
+  let render = Handlebars.compile($('#repo-template').text());  //eslint-disable-line
 
   repoView.index = function() {
     ui();

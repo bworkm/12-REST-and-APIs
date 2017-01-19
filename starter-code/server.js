@@ -5,8 +5,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const PORT = process.env.PORT || 3000;
 const app = express();
-// const conString = process.env.DATABASE_URL || 'postgres://localhost:5432';
-const conString = process.env.DATABASE_URL || 'postgres://postgres:bobistheshit@localhost:5432/bwork';
+// const conString = process.env.DATABASE_URL || 'postgres://localhost:5432';   //default connection string
+const conString = process.env.DATABASE_URL || 'postgres://postgres:bobistheshit@localhost:5432/bwork'; //custom connection string for bworkm
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
@@ -14,8 +14,9 @@ app.use(express.static('./public'));
 
 
 // NOTE: Routes for requesting HTML resources
-app.get('/', (request, response) => response.sendFile('index.html', {root: '.'}));
-app.get('/new', (request, response) => response.sendFile('new.html', {root: '.'}));
+app.get('/', (request, response) => response.sendFile('index.html', {root: './public'}));
+app.get('/new', (request, response) => response.sendFile('new.html', {root: './public'}));
+app.get('/about', (request, response) => response.sendFile('index.html', {root: './public'}));
 
 
 
